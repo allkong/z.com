@@ -12,7 +12,7 @@
 
 - [x] Section 1: 인트로
 - [x] Section 2: 기획자와 디자이너가 기획서를 던져주었다
-- [ ] Section 3: 본격 클론 시작!
+- [x] Section 3: 본격 클론 시작!
 - [ ] Section 4: 그런데 백엔드 개발자가 API를 아직 못 만들었다
 - [ ] Section 5: 백엔드 개발자가 드디어 API 문서를 주었다
 - [ ] Section 6: 백엔드 개발자가 퇴사했다

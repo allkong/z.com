@@ -1,7 +1,16 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { ReactNode } from 'react';
+import { MSWProvider } from '@/app/_component/MSWComponent';
+import AuthSession from './_component/AuthSession';
+
+if (
+  process.env.NEXT_RUNTIME === 'nodejs' &&
+  process.env.NODE_ENV !== 'production'
+) {
+  const { server } = require('@/mocks/http');
+  server.listen();
+}
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -11,12 +20,16 @@ export const metadata: Metadata = {
 };
 
 type Props = {
-  children: ReactNode;
+  children: React.ReactNode;
 };
 export default function RootLayout({ children }: Props) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang='en'>
+      <body className={inter.className}>
+        <MSWProvider>
+          <AuthSession>{children}</AuthSession>
+        </MSWProvider>
+      </body>
     </html>
   );
 }
